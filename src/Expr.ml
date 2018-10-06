@@ -1,1 +1,1 @@
-type t = A | B | Invalid
+type t = A | B | Cons of t * t | Empty | Invalid
