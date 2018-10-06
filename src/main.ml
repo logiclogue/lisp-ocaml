@@ -1,1 +1,1 @@
-let () = print_endline "It's a start :)"
+let () = "a" |> Parser.parse_expr |> ToString.expr |> print_endline
