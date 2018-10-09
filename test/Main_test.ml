@@ -7,5 +7,6 @@ let test testF fileName =
 
 let () =
     test Helpers_test.test "Helpers";
+    test SyntaxChecker_test.test "SyntaxChecker";
 
     Printf.printf "All tests pass!\n";

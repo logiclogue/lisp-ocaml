@@ -1,1 +1,1 @@
-type t = A | B | Cons of t * t | Empty | Invalid
+type t = Name string | Int int | Function of t * t list
