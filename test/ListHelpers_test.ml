@@ -1,4 +1,4 @@
-open Helpers
+open ListHelpers
 
 let f = StringHelpers.to_list
 
@@ -13,3 +13,7 @@ let test () =
     assert (last (f "") = None);
     assert (last (f "wow") = Some 'w');
     assert (last (f "wo") = Some 'o');
+
+    assert (trim_front (f "  wow") = f "wow");
+    assert (trim_front (f "") = f "");
+    assert (trim_front (f "wow") = f "wow");
