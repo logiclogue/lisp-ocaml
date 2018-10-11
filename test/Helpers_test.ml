@@ -1,10 +1,21 @@
+open Helpers
+
+let f = string_to_list
+
 let test () =
-    assert (Helpers.head "" = None);
-    assert (Helpers.head "wow" = Some 'w');
+    assert (head (f "") = None);
+    assert (head (f "wow") = Some 'w');
 
-    assert (Helpers.tail "wow" = Some "ow");
-    assert (Helpers.tail "" = None);
-    assert (Helpers.tail "w" = Some "");
+    assert (tail (f "wow") = Some (f "ow"));
+    assert (tail (f "") = None);
+    assert (tail (f "w") = Some (f ""));
 
-    assert (Helpers.cons "wow" = Some ('w', "ow"));
-    assert (Helpers.cons "" = None);
+    assert (last (f "") = None);
+    assert (last (f "wow") = Some 'w');
+    assert (last (f "wo") = Some 'o');
+
+    assert (cons "wow" = Some ('w', "ow"));
+    assert (cons "" = None);
+
+    assert (string_to_list "" = []);
+    assert (string_to_list "wow" = ['w'; 'o'; 'w']);
