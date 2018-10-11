@@ -16,7 +16,3 @@ let cons s = match head s with
     | Some c -> match tail s with
         | None   -> None
         | Some t -> Some (c, t)
-
-let rec string_to_list s = match cons s with
-    | None         -> []
-    | Some (c, cs) -> c :: string_to_list cs
