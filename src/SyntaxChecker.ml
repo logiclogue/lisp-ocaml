@@ -1,4 +1,6 @@
-let is_surrounded s = Helpers.head s = Some '"' && Helpers.last s = Some '"' 
+let is_surrounded s
+    = StringHelpers.head s = Some '"'
+    && StringHelpers.last s = Some '"' 
 
 let check_string = is_surrounded
 
