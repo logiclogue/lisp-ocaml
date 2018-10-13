@@ -8,9 +8,7 @@ let tail s = match s with
 
 let cons s = match head s with
     | None   -> None
-    | Some c -> match tail s with
-        | None   -> None
-        | Some t -> Some (c, t)
+    | Some c -> Some (c, tail s)
 
 let rec last s = match cons s with
     | None         -> None
