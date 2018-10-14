@@ -1,7 +1,8 @@
-let is_surrounded s
-    = StringHelpers.head s = Some '"'
-    && StringHelpers.last s = Some '"' 
+let check_string s =
+    let inside_is_valid _cs = true in
 
-let check_string = is_surrounded
+    match s with
+    | []        -> false
+    | (c :: cs) -> c == '"' && inside_is_valid cs
 
 let check_int s = false
