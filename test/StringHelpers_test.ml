@@ -8,6 +8,10 @@ let test () =
     assert (tail "" = "");
     assert (tail "w" = "");
 
+    assert (de_cons "wow" = Some ('w', "ow"));
+    assert (de_cons "w" = Some ('w', ""));
+    assert (de_cons "" = None);
+
     assert (last "wow" = Some 'w');
     assert (last "" = None);
 

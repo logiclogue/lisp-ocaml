@@ -14,6 +14,10 @@ let test () =
     assert (last (f "wow") = Some 'w');
     assert (last (f "wo") = Some 'o');
 
+    assert (inline (f "\nw\012o\tw\rw") = f " w o w w");
+
     assert (trim_front (f "  wow") = f "wow");
     assert (trim_front (f "") = f "");
     assert (trim_front (f "wow") = f "wow");
+
+    assert (to_string (f "wow") = "wow");

@@ -11,13 +11,20 @@ let rec last s = match s with
     | (x :: []) -> Some x
     | (x :: xs) -> last xs
 
+let inline =
+    let f c = match c with
+        | '\n'   -> ' '
+        | '\012' -> ' '
+        | '\t'   -> ' '
+        | '\r'   -> ' '
+        | c      -> c
+        in
+
+    List.map f
+
 let rec trim_front s = match s with
     | []          -> []
     | (' ' :: xs) -> trim_front xs
     | xs          -> xs
 
-let cons s = match head s with
-    | None   -> None
-    | Some c -> match tail s with
-        | None   -> None
-        | Some t -> Some (c, t)
+let to_string s = String.concat "" (List.map (String.make 1) s)

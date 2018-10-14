@@ -1,6 +1,6 @@
 open SyntaxChecker
 
-let f = Helpers.string_to_list
+let f = StringHelpers.to_list
 
 let test () =
     assert (f "\"sldfj\"" |> check_string);
