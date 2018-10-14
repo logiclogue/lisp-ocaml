@@ -18,3 +18,5 @@ let rec last s = match de_cons s with
 let rec to_list s = match de_cons s with
     | None         -> []
     | Some (c, cs) -> c :: to_list cs
+
+let from_list s = String.concat "" (List.map (String.make 1) s)

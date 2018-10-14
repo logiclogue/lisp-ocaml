@@ -19,5 +19,3 @@ let test () =
     assert (trim_front (f "  wow") = f "wow");
     assert (trim_front (f "") = f "");
     assert (trim_front (f "wow") = f "wow");
-
-    assert (to_string (f "wow") = "wow");

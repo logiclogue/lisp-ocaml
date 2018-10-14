@@ -17,3 +17,5 @@ let test () =
 
     assert (to_list "" = []);
     assert (to_list "wow" = ['w'; 'o'; 'w']);
+
+    assert (from_list (to_list "wow") = "wow");

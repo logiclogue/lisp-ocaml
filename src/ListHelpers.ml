@@ -26,5 +26,3 @@ let rec trim_front s = match s with
     | []          -> []
     | (' ' :: xs) -> trim_front xs
     | xs          -> xs
-
-let to_string s = String.concat "" (List.map (String.make 1) s)
