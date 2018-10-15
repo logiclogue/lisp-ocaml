@@ -1,8 +1,8 @@
 let check_string s =
-    let inside_is_valid _cs = true in
+    let after_open_quote _cs = true in
 
     match s with
     | []        -> false
-    | (c :: cs) -> c == '"' && inside_is_valid cs
+    | (c :: cs) -> c == '"' && after_open_quote cs
 
 let check_int s = false
