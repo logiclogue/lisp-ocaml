@@ -1,5 +1,9 @@
 let check_string s =
-    let after_open_quote _cs = true in
+    let rec after_open_quote cs = match cs with
+        | ('"' :: []) -> true
+        | (c :: cs)   -> after_open_quote cs
+        | ([])        -> false
+        in
 
     match s with
     | []        -> false
