@@ -1,8 +1,9 @@
 let check_string s =
     let rec after_open_quote cs = match cs with
-        | ('"' :: []) -> true
-        | (c :: cs)   -> after_open_quote cs
-        | ([])        -> false
+        | ('"' :: [])  -> true
+        | ('"' :: cs)  -> false
+        | (c :: cs)    -> after_open_quote cs
+        | ([])         -> false
         in
 
     match s with
