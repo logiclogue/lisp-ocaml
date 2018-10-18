@@ -24,3 +24,9 @@ let is_uppercase_letter c =
 
 let is_letter c =
     is_lowercase_letter c || is_uppercase_letter c
+
+let is_spacer c =
+    match c with
+    | '-' -> true
+    | '_' -> true
+    | _   -> false

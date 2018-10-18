@@ -24,3 +24,11 @@ let test () =
     assert ('a' |> is_letter);
     assert ('z' |> is_letter);
     assert ('1' |> is_letter |> not);
+
+    assert ('a' |> is_spacer |> not);
+    assert ('z' |> is_spacer |> not);
+    assert ('A' |> is_spacer |> not);
+    assert ('1' |> is_spacer |> not);
+    assert (' ' |> is_spacer |> not);
+    assert ('-' |> is_spacer);
+    assert ('_' |> is_spacer);
