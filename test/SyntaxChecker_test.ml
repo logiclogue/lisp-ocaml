@@ -11,4 +11,10 @@ let test () =
     assert (not (f "\"\"\"" |> check_string));
     assert (not (f "\"wow\"12" |> check_string));
 
-    assert (check_int "12");
+    assert (f "1123123" |> check_int);
+    assert (f "1" |> check_int);
+    assert (f "12" |> check_int);
+    assert (not (f "12 " |> check_int));
+    assert (not (f "wow" |> check_int));
+    assert (not (f "" |> check_int));
+    assert (not (f "123abc" |> check_int));
