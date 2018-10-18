@@ -18,3 +18,9 @@ let test () =
     assert ('a' |> is_uppercase_letter |> not);
     assert ('z' |> is_uppercase_letter |> not);
     assert ('1' |> is_uppercase_letter |> not);
+
+    assert ('A' |> is_letter);
+    assert ('Z' |> is_letter);
+    assert ('a' |> is_letter);
+    assert ('z' |> is_letter);
+    assert ('1' |> is_letter |> not);

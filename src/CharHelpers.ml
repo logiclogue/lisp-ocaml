@@ -21,3 +21,6 @@ let is_uppercase_letter c =
     let code = Char.code c in
 
     code >= 65 && code <= 90
+
+let is_letter c =
+    is_lowercase_letter c || is_uppercase_letter c
