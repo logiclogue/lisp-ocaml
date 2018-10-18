@@ -16,4 +16,19 @@ let rec check_int s =
     | (c :: cs) -> CharHelpers.is_digit c && check_int cs
     | []        -> false
 
-let check_name s = false
+let check_name s =
+    let is_valid_char c
+        = CharHelpers.is_letter c
+        || CharHelpers.is_digit c
+        || CharHelpers.is_spacer c
+        in
+
+    let rec check_rest_of_name cs =
+        match cs with
+        | (c :: cs) -> is_valid_char c && check_rest_of_name cs
+        | []        -> true
+        in
+
+    match s with
+    | (c :: cs) -> CharHelpers.is_letter c && check_rest_of_name cs
+    | []        -> false
