@@ -9,5 +9,6 @@ let test () =
     assert (not (f "" |> check_string));
     assert (not (f "\"" |> check_string));
     assert (not (f "\"\"\"" |> check_string));
+    assert (not (f "\"wow\"12" |> check_string));
 
     assert (check_int "12");
