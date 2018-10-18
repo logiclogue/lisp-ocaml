@@ -11,3 +11,13 @@ let is_digit c =
     | '8' -> true
     | '9' -> true
     | _   -> false
+
+let is_lowercase_letter c =
+    let code = Char.code c in
+
+    code >= 97 && code <= 122
+
+let is_uppercase_letter c =
+    let code = Char.code c in
+
+    code >= 65 && code <= 90
