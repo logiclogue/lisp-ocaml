@@ -7,6 +7,7 @@ let test testF fileName =
 
 let () =
     test ListHelpers_test.test "ListHelpers";
+    test CharHelpers_test.test "CharHelpers";
     test StringHelpers_test.test "StringHelpers";
     test SyntaxChecker_test.test "SyntaxChecker";
 

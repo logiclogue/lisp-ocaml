@@ -29,3 +29,5 @@ let rec check_int s =
     | (c :: []) -> check_digit c
     | (c :: cs) -> check_digit c && check_int cs
     | []        -> false
+
+let check_name s = false
