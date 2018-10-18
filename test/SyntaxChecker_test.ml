@@ -24,6 +24,8 @@ let test () =
     assert (f "wow-wow" |> check_name);
     assert (f "wow_wow" |> check_name);
     assert (f "wow12" |> check_name);
+    assert (f "_wow12" |> check_name);
     assert (f "12wow12" |> check_name |> not);
     assert (f "wow^wow" |> check_name |> not);
     assert (f "wow wow" |> check_name |> not);
+    assert (f "" |> check_name |> not);

@@ -17,11 +17,10 @@ let rec check_int s =
     | []        -> false
 
 let check_name s =
-    let is_valid_char c
-        = CharHelpers.is_letter c
-        || CharHelpers.is_digit c
-        || CharHelpers.is_spacer c
-        in
+    let is_valid_leading_char c = CharHelpers.is_letter c
+        || CharHelpers.is_spacer c in
+
+    let is_valid_char c = is_valid_leading_char c || CharHelpers.is_digit c in
 
     let rec check_rest_of_name cs =
         match cs with
@@ -30,5 +29,5 @@ let check_name s =
         in
 
     match s with
-    | (c :: cs) -> CharHelpers.is_letter c && check_rest_of_name cs
+    | (c :: cs) -> (is_valid_leading_char c) && check_rest_of_name cs
     | []        -> false
