@@ -29,3 +29,8 @@ let test () =
     assert (f "wow^wow" |> check_name |> not);
     assert (f "wow wow" |> check_name |> not);
     assert (f "" |> check_name |> not);
+
+    assert((f "" |> list_splitter) = []);
+    assert((f "(wow)" |> list_splitter) = ["("; "wow"; ")"]);
+    assert((f "( wow )" |> list_splitter) = ["("; "wow"; ")"]);
+    assert((f "(+ wow)" |> list_splitter) = ["("; "+"; "wow"; ")"]);

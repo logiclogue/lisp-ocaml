@@ -31,3 +31,10 @@ let check_name s =
     match s with
     | (c :: cs) -> (is_valid_leading_char c) && check_rest_of_name cs
     | []        -> false
+
+let rec list_splitter s =
+    match s with
+    | ('(' :: cs) -> "(" :: (list_splitter cs)
+    | (')' :: []) -> [")"]
+    | (c :: cs)   -> "c" :: (list_splitter cs)
+    | []          -> []
