@@ -5,6 +5,7 @@ let f = StringHelpers.to_list
 let test () =
     assert (f "\"sldfj\"" |> check_string);
     assert (f "\"\"" |> check_string);
+    assert (f "\"w\\\"ow\"12" |> check_string);
     assert (f "alskdjf" |> check_string |> not);
     assert (f "" |> check_string |> not);
     assert (f "\"" |> check_string |> not);
