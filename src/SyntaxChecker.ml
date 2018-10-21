@@ -1,14 +1,19 @@
 let check_string s =
-    let rec after_open_quote cs = match cs with
+    let after_escape cs = match cs with
+        | (c :: cs) -> true
+        | []        -> false
+        in
+
+    let rec after_quote cs = match cs with
         | ('"' :: [])  -> true
-        | ('"' :: cs)  -> false
-        | (c :: cs)    -> after_open_quote cs
-        | ([])         -> false
+        | ('\\' :: xs) -> after_escape cs && after_quote cs
+        | (c :: cs)    -> after_quote cs
+        | []           -> false
         in
 
     match s with
-    | []        -> false
-    | (c :: cs) -> c == '"' && after_open_quote cs
+    | ('"' :: cs) -> after_quote cs
+    | _           -> false
 
 let rec check_int s =
     match s with
