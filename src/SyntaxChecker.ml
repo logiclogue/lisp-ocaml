@@ -1,12 +1,13 @@
 let check_string =
     let after_escape = function
-        | (c :: cs) -> true
-        | []        -> false
+        | (c :: cs) -> cs
+        | []        -> []
         in
 
     let rec after_quote = function
         | ('"' :: [])  -> true
-        | ('\\' :: cs) -> after_escape cs && after_quote cs
+        | ('\\' :: cs) -> after_escape cs |> after_quote
+        | ('"' :: cs)  -> false
         | (c :: cs)    -> after_quote cs
         | []           -> false
         in
