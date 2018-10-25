@@ -3,3 +3,4 @@ type t =
     | Int of int
     | String of string
     | List of t list
+    | Lamda of t * string * t
