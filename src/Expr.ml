@@ -3,4 +3,11 @@ type t =
     | Int of int
     | String of string
     | List of t list
-    | Lamda of t * string * t
+    | Function of (t -> t)
+
+let add1 = function
+    | Int x -> Int (x + 1)
+    | _     -> Int 0
+
+let prelude = []
+    |> (("add1", Function add1) ::)

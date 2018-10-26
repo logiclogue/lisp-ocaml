@@ -1,4 +1,4 @@
-open SyntaxChecker
+open Expr
 
 let test () =
-    assert false;
+    assert ((prelude.find "add") 1 2 = 3);
