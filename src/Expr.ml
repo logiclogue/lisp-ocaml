@@ -10,4 +10,4 @@ let add1 = function
     | _     -> Int 0
 
 let prelude = []
-    |> (("add1", Function add1) ::)
+    |> (fun xs -> ("add1", Function add1) :: xs)
