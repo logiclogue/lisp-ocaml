@@ -9,5 +9,4 @@ let add1 = function
     | Int x -> Int (x + 1)
     | _     -> Int 0
 
-let prelude = []
-    |> (fun xs -> ("add1", Function add1) :: xs)
+let prelude = [("add1", Function add1)]
