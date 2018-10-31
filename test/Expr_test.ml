@@ -1,7 +1,7 @@
 open Expr
 
 let test () =
-    let add1 = match List.find (fun (s, _) -> s == "add1") prelude with
+    let add1 = match List.find (fun (s, _) -> s = "add1") prelude with
         | (_, Function f) -> f
         in
 
