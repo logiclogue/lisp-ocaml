@@ -9,6 +9,7 @@ let () =
     test ListHelpers_test.test "ListHelpers";
     test CharHelpers_test.test "CharHelpers";
     test StringHelpers_test.test "StringHelpers";
+    test Parser_test.test "Parser";
     test Expr_test.test "Expr";
     test SyntaxChecker_test.test "SyntaxChecker";
 
