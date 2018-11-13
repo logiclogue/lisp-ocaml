@@ -21,3 +21,5 @@ let fmap : ('a -> 'b) -> 'a parser -> 'b parser =
         Parser (fun ts -> px ts |> List.map (fun (x, ts') -> (f x, ts')))
 
 let (<$>) : ('a -> 'b) -> 'a parser -> 'b parser = fmap
+
+let (<$) : 'b -> 'a parser -> 'b parser = fun x -> fmap (fun _ -> x)
