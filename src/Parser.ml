@@ -26,3 +26,6 @@ let (<$) : 'b -> 'a parser -> 'b parser = fun x -> fmap (fun _ -> x)
 
 let skip : 'a parser -> unit parser =
     fun px -> () <$ px
+
+let pure : 'a -> 'a parser =
+    fun x -> Parser (fun ts -> [(x, ts)])
