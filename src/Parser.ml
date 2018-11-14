@@ -29,3 +29,7 @@ let skip : 'a parser -> unit parser =
 
 let pure : 'a -> 'a parser =
     fun x -> Parser (fun ts -> [(x, ts)])
+
+let (<*>) : ('a -> 'b) parser -> 'a parser -> 'b parser =
+    function (Parser pf) -> function (Parser px) ->
+        Parser (fun ts -> pf ts |> List.map (fun (f, ts') -> px ts' |> List.map (fun (x, ts'') -> (f x, ts''))))

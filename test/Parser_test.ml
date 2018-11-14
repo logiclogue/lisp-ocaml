@@ -9,3 +9,4 @@ let test () =
     assert (parse ("$$" <$ item) "wow" = [("$$", "ow")]);
     assert (parse (skip item) "wow" = [((), "ow")]);
     assert (parse (pure 42) "wow" = [(42, "ow")]);
+    assert (parse (Char.code <$ item <*> item) "wow" = [(111, "w")]);
