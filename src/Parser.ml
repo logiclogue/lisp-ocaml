@@ -23,3 +23,6 @@ let fmap : ('a -> 'b) -> 'a parser -> 'b parser =
 let (<$>) : ('a -> 'b) -> 'a parser -> 'b parser = fmap
 
 let (<$) : 'b -> 'a parser -> 'b parser = fun x -> fmap (fun _ -> x)
+
+let skip : 'a parser -> unit parser =
+    fun px -> () <$ px

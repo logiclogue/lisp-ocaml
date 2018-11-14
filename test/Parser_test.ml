@@ -7,3 +7,4 @@ let test () =
     assert (parse (fmap Char.code item) "wow" = [(119, "ow")]);
     assert (parse (Char.code <$> item) "wow" = [(119, "ow")]);
     assert (parse ("$$" <$ item) "wow" = [("$$", "ow")]);
+    assert (parse (skip item) "wow" = [((), "ow")])
