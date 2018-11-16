@@ -15,3 +15,4 @@ let test () =
     assert (parse (Char.code <$ item <* item <*> item) "wow" = [(119, "")]);
     assert (parse ((Char.code <$ item) *> item) "wow" = [('o', "w")]);
     assert (parse (item <**> char_code) "wow" = [(119, "ow")]);
+    assert (parse () "wow" = [()])
