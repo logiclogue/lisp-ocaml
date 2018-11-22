@@ -46,5 +46,5 @@ let ( *> ) : 'a parser -> 'b parser -> 'b parser =
 let ( <**> ) : 'a parser -> ('a -> 'b) parser -> 'b parser =
     fun px pf -> (fun x f -> f x) <$> px <*> pf
 
-(*let ( <:> ) : 'a parser -> 'a list parser -> 'a list parser =
-    fun px pxs -> (::) <$*)
+let ( <:> ) : 'a parser -> 'a list parser -> 'a list parser =
+    fun px pxs -> (fun x xs -> x :: xs) <$> px <*> pxs
