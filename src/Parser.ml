@@ -48,3 +48,6 @@ let ( <**> ) : 'a parser -> ('a -> 'b) parser -> 'b parser =
 
 let ( <:> ) : 'a parser -> 'a list parser -> 'a list parser =
     fun px pxs -> (fun x xs -> x :: xs) <$> px <*> pxs
+
+let between : 'b parser -> 'c parser -> 'a parser -> 'a parser =
+    fun popen pclose px -> (popen *> px) <* pclose

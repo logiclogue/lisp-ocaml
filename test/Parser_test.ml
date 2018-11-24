@@ -16,3 +16,4 @@ let test () =
     assert (parse ((Char.code <$ item) *> item) "wow" = [('o', "w")]);
     assert (parse (item <**> char_code) "wow" = [(119, "ow")]);
     assert (parse (item <:> pure []) "wow" = [(['w'], "ow")]);
+    assert (parse (between item item (Char.code <$> item)) "wow" = [(111, "")]);
