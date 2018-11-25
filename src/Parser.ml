@@ -51,3 +51,6 @@ let ( <:> ) : 'a parser -> 'a list parser -> 'a list parser =
 
 let between : 'b parser -> 'c parser -> 'a parser -> 'a parser =
     fun popen pclose px -> (popen *> px) <* pclose
+
+let unit : unit parser =
+    Parser (fun ts -> [((), ts)])
