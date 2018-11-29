@@ -54,3 +54,6 @@ let between : 'b parser -> 'c parser -> 'a parser -> 'a parser =
 
 let unit : unit parser =
     Parser (fun ts -> [((), ts)])
+
+let mult : 'a parser -> 'b parser -> ('a * 'b) parser =
+    fun px py -> (fun a b -> (a, b)) <$> px <*> py
