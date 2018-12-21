@@ -58,4 +58,11 @@ let unit : unit parser =
 let mult : 'a parser -> 'b parser -> ('a * 'b) parser =
     fun px py -> (fun a b -> (a, b)) <$> px <*> py
 
-let ( <~> ) : 'a parser -> 'b parser -> ('a * 'b) parser = mult
+let ( <~> ) : 'a parser -> 'b parser -> ('a * 'b) parser =
+    mult
+
+let ( <~ ) : 'a parser -> 'b parser -> 'a parser =
+    fun px py -> fst <$> (px <~> py)
+
+let ( ~> ) : 'a parser -> 'b parser -> 'b parser =
+    fun px py -> snd <$> (px <~> py)
