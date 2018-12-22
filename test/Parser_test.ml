@@ -22,3 +22,4 @@ let test () =
     assert (parse (item <~> (Char.code <$> item)) "wow" = [(('w', 111), "w")]);
     assert (parse (item <~ (Char.code <$> item)) "wow" = [('w', "w")]);
     assert (parse ((~>) item (Char.code <$> item)) "wow" = [(111, "w")]);
+    assert (parse empty "wow" = [])
