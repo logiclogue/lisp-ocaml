@@ -69,3 +69,6 @@ let ( ~> ) : 'a parser -> 'b parser -> 'b parser =
 
 let empty : 'a parser =
     Parser (fun ts -> [])
+
+let ( <|> ) : 'a parser -> 'a parser -> 'a parser =
+    fun (Parser px) (Parser py) -> Parser (fun ts -> px ts @ py ts)
