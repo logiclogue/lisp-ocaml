@@ -72,3 +72,6 @@ let empty : 'a parser =
 
 let ( <|> ) : 'a parser -> 'a parser -> 'a parser =
     fun (Parser px) (Parser py) -> Parser (fun ts -> px ts @ py ts)
+
+let choice : 'a parser list -> 'a parser =
+    fun pxs -> List.fold_right (<|>) pxs empty
