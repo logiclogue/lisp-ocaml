@@ -75,3 +75,9 @@ let ( <|> ) : 'a parser -> 'a parser -> 'a parser =
 
 let choice : 'a parser list -> 'a parser =
     fun pxs -> List.fold_right (<|>) pxs empty
+
+let some : 'a parser -> 'a list parser =
+    fun px -> px <:> many px
+
+let many : 'a parser -> 'a list parser =
+    fun px -> some px <|> pure []

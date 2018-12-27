@@ -25,3 +25,4 @@ let test () =
     assert (parse empty "wow" = []);
     assert (parse (item <|> pure 'j') "wow" = [('w', "ow"); ('j', "wow")]);
     assert (parse (choice [item; pure 'j']) "wo" = [('w', "o"); ('j', "wo")]);
+    assert (parse (some item) "wow" = [(['w'; 'o'; 'w'], "")]);
